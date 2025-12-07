@@ -1,7 +1,7 @@
 # Makefile for java-system-hotkey
 
 JAVA_HOME ?= $(shell dirname $(shell dirname $(shell readlink -f $(shell which java))))
-JAI_SRC_DIR = ../jai-system-hotkey
+JAI_SRC_DIR = jai-system-hotkey
 
 # Platform detection
 UNAME_S := $(shell uname -s)

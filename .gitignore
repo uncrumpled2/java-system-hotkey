@@ -2,8 +2,7 @@
 build/
 target/
 
-# Native libraries (built, not committed)
-src/main/resources/natives/
+# Native libraries are committed for cross-platform Maven publishing
 
 # IDE
 .idea/
