@@ -1,0 +1,3 @@
+[submodule "jai-system-hotkey"]
+	path = jai-system-hotkey
+	url = git@github.com:uncrumpled2/jai-system-hotkey.git
