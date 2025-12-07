@@ -159,3 +159,6 @@ LD_LIBRARY_PATH="/nix/store/26c0x3gh2g5dpczvjxgjzn0mc22zxpjz-libX11-1.8.12/lib:/
     clj -J-Djava.library.path=/root/programming/repo/java-system-hotkey/
   src/main/resources/natives/linux-x86_64 \
     -M:run
+
+  LD_LIBRARY_PATH="/nix/store/26c0x3gh2g5dpczvjxgjzn0mc22zxpjz-libX11-1.8.12/lib:/nix/store/09aq563zkqcw9ikxn02p4bm13i2hz51r-libxcb-1.17.0/lib
+  " clj -J-Djava.library.path=/root/programming/repo/java-system-hotkey/src/main/resources/natives/linux-x86_64 -M:run
