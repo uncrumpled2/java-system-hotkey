@@ -162,3 +162,38 @@ LD_LIBRARY_PATH="/nix/store/26c0x3gh2g5dpczvjxgjzn0mc22zxpjz-libX11-1.8.12/lib:/
 
   LD_LIBRARY_PATH="/nix/store/26c0x3gh2g5dpczvjxgjzn0mc22zxpjz-libX11-1.8.12/lib:/nix/store/09aq563zkqcw9ikxn02p4bm13i2hz51r-libxcb-1.17.0/lib
   " clj -J-Djava.library.path=/root/programming/repo/java-system-hotkey/src/main/resources/natives/linux-x86_64 -M:run
+
+## Github Actions
+  Workflow features:
+  - Manual trigger via workflow_dispatch
+  - Parallel builds for all platforms (Linux, macOS x64, macOS arm64, Windows)
+  - All artifacts collected and committed in a single commit
+  - Optional Maven Central publishing with version tagging
+
+  Required Setup
+
+  Repository Secrets (Settings → Secrets and variables → Actions → Secrets)
+
+  | Secret           | Description                                       |
+  |------------------|---------------------------------------------------|
+  | AWS_ECR_PASSWORD | ECR password (get via aws ecr get-login-password) |
+  | MAVEN_USERNAME   | Maven Central username (for publishing)           |
+  | MAVEN_PASSWORD   | Maven Central password/token                      |
+  | GPG_PRIVATE_KEY  | ASCII-armored GPG key for signing                 |
+  | GPG_PASSPHRASE   | GPG key passphrase                                |
+
+  Repository Variables (Settings → Secrets and variables → Actions → Variables)
+
+  | Variable            | Description                                   |
+  |---------------------|-----------------------------------------------|
+  | JAI_MACOS_X64_URL   | URL to download Jai for macOS x86_64 (tar.gz) |
+  | JAI_MACOS_ARM64_URL | URL to download Jai for macOS arm64 (tar.gz)  |
+  | JAI_WINDOWS_URL     | URL to download Jai for Windows (zip)         |
+
+  ECR Password
+
+  Generate with:
+  aws ecr get-login-password --region ap-southeast-2
+
+  You may want to set up a scheduled job or use OIDC authentication instead of a static password since ECR tokens
+  expire.
